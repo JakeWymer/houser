@@ -18,11 +18,18 @@ massive(process.env.DB_STRING)
   })
   .catch(err => console.log(err));
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(json());
 
 app.get('/api/houses', controller.getHouses);
 app.post('/api/houses', controller.addHouse);
 app.delete('/api/house/:id', controller.deleteHouse);
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
