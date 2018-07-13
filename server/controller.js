@@ -5,8 +5,8 @@ const getHouses = (req, res) => {
 }
 
 const addHouse = (req, res) => {
-  let {name, address, city, state, zipcode} = req.body
-  req.app.get('db').add_house([name, address, city, state, zipcode])
+  let {name, address, city, state, zipcode, image, mortgage, rent} = req.body
+  req.app.get('db').add_house([name, address, city, state, zipcode, image, mortgage, rent])
     .then(() => res.sendStatus(200))
     .catch(err => res.status(500).send(err));
 }

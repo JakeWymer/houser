@@ -10,6 +10,10 @@ const port = 5000;
 massive(process.env.DB_STRING)
   .then(db => {
     app.set('db', db);
+    app.get('db').alter_houses_columns()
+      .then(() => console.log('COLUMNS ADDED'))
+      .catch(err => console.log(err));
+      
     console.log('Connected to DB');
   })
   .catch(err => console.log(err));

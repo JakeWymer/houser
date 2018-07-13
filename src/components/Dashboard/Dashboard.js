@@ -13,7 +13,7 @@ class Dashboard extends Component {
     this.deleteHouse = this.deleteHouse.bind(this);
   }
   
-  async componentDidMount() {
+  componentDidMount() {
     this.getHouses();
   }
 
@@ -40,7 +40,7 @@ class Dashboard extends Component {
     return (
       <div>
         DASHBOARD
-        <Link to="/wizard"><button>Add New Property</button></Link>
+        <Link to="/wizard/step1"><button>Add New Property</button></Link>
 
         {houseArr}
       </div>
